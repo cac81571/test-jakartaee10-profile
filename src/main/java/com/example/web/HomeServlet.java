@@ -34,8 +34,10 @@ public class HomeServlet extends HttpServlet {
 
         org.apache.logging.log4j.Level rootLevel = org.apache.logging.log4j.LogManager.getRootLogger().getLevel();
 
-        req.setAttribute("sysProp", System.getProperty("mp.config.profile"));
-        req.setAttribute("envVar", System.getenv("MP_CONFIG_PROFILE"));
+        req.setAttribute("sysProp", System.getProperty("APP_ENV"));
+        req.setAttribute("envVar", System.getenv("APP_ENV"));
+        req.setAttribute("mpProfileSysProp", System.getProperty("mp.config.profile"));
+        req.setAttribute("mpProfileEnvVar", System.getenv("MP_CONFIG_PROFILE"));
         req.setAttribute("labelEnvVar", System.getenv("APP_PROFILE_LABEL"));
         req.setAttribute("messageEnvVar", System.getenv("APP_MESSAGE"));
         req.setAttribute("debugEnabled", log.isDebugEnabled());

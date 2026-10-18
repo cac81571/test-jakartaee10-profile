@@ -8,13 +8,18 @@
 </h:head>
 <h:body>
   <h1>Jakarta EE 10 profile test</h1>
-  <p>mp.config.profile: <b>#{appEnv.value}</b></p>
+  <p>APP_ENV: <b>#{appEnv.value}</b></p>
   <p>System property: #{empty sysProp ? '(未設定)' : sysProp}</p>
-  <p>環境変数 MP_CONFIG_PROFILE: #{empty envVar ? '(未設定)' : envVar}</p>
+  <p>環境変数 APP_ENV: #{empty envVar ? '(未設定)' : envVar}</p>
   <p>app.profile.label: <b>#{appProperties.profileLabel}</b></p>
   <p>環境変数 APP_PROFILE_LABEL: #{empty labelEnvVar ? '(未設定)' : labelEnvVar}</p>
   <p>app.message: <b>#{appProperties.message}</b></p>
   <p>環境変数 APP_MESSAGE: #{empty messageEnvVar ? '(未設定)' : messageEnvVar}</p>
+  <p>mp.config.profile: <b>#{mpConfig.profile}</b></p>
+  <p>System property mp.config.profile: #{empty mpProfileSysProp ? '(未設定)' : mpProfileSysProp}</p>
+  <p>環境変数 MP_CONFIG_PROFILE: #{empty mpProfileEnvVar ? '(未設定)' : mpProfileEnvVar}</p>
+  <p>mp.profile.label: <b>#{mpConfig.profileLabel}</b></p>
+  <p>mp.message: <b>#{mpConfig.message}</b></p>
   <p>com.example の DEBUG: <b>#{debugEnabled ? '有効' : '無効'}</b></p>
   <p>root のレベル: <b>#{rootLevel}</b></p>
   <p><h:outputLink value="#{resource[appEnv.value.concat(':env.css')]}">env.css を開く</h:outputLink></p>

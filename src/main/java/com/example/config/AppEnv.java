@@ -6,8 +6,8 @@ import jakarta.inject.Named;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 /**
- * mp.config.profile は MicroProfile Config が起動時に1回解決する。
- * システムプロパティ、環境変数 MP_CONFIG_PROFILE、未設定なら prod の順。
+ * APP_ENV は MicroProfile Config が起動時に1回解決する。
+ * システムプロパティ、環境変数、未設定なら prod の順。
  * 画面では #{appEnv.value} として CSS のライブラリ名に使う。
  */
 @Named("appEnv")
@@ -15,7 +15,7 @@ import org.eclipse.microprofile.config.inject.ConfigProperty;
 public class AppEnv {
 
     @Inject
-    @ConfigProperty(name = "mp.config.profile", defaultValue = "prod")
+    @ConfigProperty(name = "APP_ENV", defaultValue = "prod")
     String value;
 
     public String getValue() {

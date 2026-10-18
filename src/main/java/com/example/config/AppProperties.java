@@ -15,7 +15,7 @@ import java.util.Locale;
 import java.util.Properties;
 
 /**
- * application-${mp.config.profile}.properties を java.util.Properties で1回読む。
+ * application-${APP_ENV}.properties を java.util.Properties で1回読む。
  * 同じキーの環境変数があれば、ファイルの値より優先する。
  * app.message の環境変数名は APP_MESSAGE。
  */

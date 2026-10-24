@@ -40,6 +40,8 @@ public class HomeServlet extends HttpServlet {
         req.setAttribute("mpProfileEnvVar", System.getenv("MP_CONFIG_PROFILE"));
         req.setAttribute("labelEnvVar", System.getenv("APP_PROFILE_LABEL"));
         req.setAttribute("messageEnvVar", System.getenv("APP_MESSAGE"));
+        req.setAttribute("mpLabelEnvVar", System.getenv("MP_PROFILE_LABEL"));
+        req.setAttribute("mpMessageEnvVar", System.getenv("MP_MESSAGE"));
         req.setAttribute("debugEnabled", log.isDebugEnabled());
         req.setAttribute("rootLevel", rootLevel == null ? "" : rootLevel.name());
         req.getRequestDispatcher("/index.xhtml").forward(req, resp);

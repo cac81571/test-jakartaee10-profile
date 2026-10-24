@@ -125,12 +125,26 @@ set MP_CONFIG_PROFILE=dev
 standalone.bat
 ```
 
-画面の `mp.profile.label` と `mp.message` は `@ConfigProperty` の値です。同じキーの環境変数があれば、ファイルより優先されます。`mp.message` の環境変数名は `MP_MESSAGE` です。
+ファイルの値は `${環境変数名:既定値}` で環境変数を参照します。環境変数が無いときは、コロン以降が使われます。
 
-| キー | dev | 未設定（共通ファイル） |
-|---|---|---|
-| mp.profile.label | DEV | PROD |
-| mp.message | これは dev の MicroProfile Config です | これは prod の MicroProfile Config です |
+```properties
+mp.message=${MP_MESSAGE:これは prod の MicroProfile Config です}
+```
+
+`MP_MESSAGE` を指定すると、`mp.message` はその値になります。キー名を `.` から `_` にして大文字にした環境変数は、ファイルより優先されるためです。`mp.profile.label` の環境変数名は `MP_PROFILE_LABEL` です。
+
+| キー | 環境変数 | dev | 未設定（共通ファイル） |
+|---|---|---|---|
+| mp.profile.label | MP_PROFILE_LABEL | DEV | PROD |
+| mp.message | MP_MESSAGE | これは dev の MicroProfile Config です | これは prod の MicroProfile Config です |
+
+```
+set MP_CONFIG_PROFILE=dev
+set MP_MESSAGE=環境変数で上書き
+standalone.bat
+```
+
+このとき `mp.profile.label` は `DEV`、`mp.message` は `環境変数で上書き` になります。`MP_MESSAGE` を外して再起動すると、dev の既定文言に戻ります。
 
 ## 確認する URL
 

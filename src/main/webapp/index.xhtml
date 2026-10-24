@@ -19,7 +19,9 @@
   <p>System property mp.config.profile: #{empty mpProfileSysProp ? '(未設定)' : mpProfileSysProp}</p>
   <p>環境変数 MP_CONFIG_PROFILE: #{empty mpProfileEnvVar ? '(未設定)' : mpProfileEnvVar}</p>
   <p>mp.profile.label: <b>#{mpConfig.profileLabel}</b></p>
+  <p>環境変数 MP_PROFILE_LABEL: #{empty mpLabelEnvVar ? '(未設定)' : mpLabelEnvVar}</p>
   <p>mp.message: <b>#{mpConfig.message}</b></p>
+  <p>環境変数 MP_MESSAGE: #{empty mpMessageEnvVar ? '(未設定)' : mpMessageEnvVar}</p>
   <p>com.example の DEBUG: <b>#{debugEnabled ? '有効' : '無効'}</b></p>
   <p>root のレベル: <b>#{rootLevel}</b></p>
   <p><h:outputLink value="#{resource[appEnv.value.concat(':env.css')]}">env.css を開く</h:outputLink></p>
